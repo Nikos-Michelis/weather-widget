@@ -1,0 +1,36 @@
+.sun {
+  border-radius: 50%;
+  background-color: var(--clr-sun-yellow);
+  width: 3rem;
+  height: 3rem;
+  animation: spin 4s linear infinite, sun-pulse-shadow 1s ease-in-out infinite alternate;
+}
+
+.moon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: radial-gradient(
+                  circle at 30% 30%,
+                  #f5f5f5,
+                  #dcdcdc 40%,
+                  #b0b0b0 70%,
+                  #8c8c8c 100%
+  );
+  animation: spin 4s linear infinite, moon-pulse-shadow 1s ease-in-out infinite alternate;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes sun-pulse-shadow {
+  from { filter: drop-shadow(2px 2px 4px rgba(255, 165, 0, 1)); }
+  to   { filter: drop-shadow(4px 4px 12px rgba(255, 165, 0, 1)); }
+}
+
+@keyframes moon-pulse-shadow {
+  from { filter: drop-shadow(2px 2px 4px rgba(148, 144, 141, 1)); }
+  to   { filter: drop-shadow(4px 4px 12px rgba(148, 144, 141, 1)); }
+}

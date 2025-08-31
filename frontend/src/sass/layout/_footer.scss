@@ -1,0 +1,62 @@
+@use "../abstracts" as abs;
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr-main-300);
+  padding: 1rem;
+  overflow: hidden;
+  z-index: 1;
+
+  &__social_box {
+    @include abs.font($font-size: var(--fs-600));
+
+    & > a {
+      text-decoration: none;
+      padding: 0.5rem;
+      color: var(--clr-dark-cosmos-300);
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 1rem;
+    &--start {
+      align-items: flex-start;
+    }
+    &--center {
+      align-items: center;
+    }
+  }
+
+
+  &__info-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    & a {
+      @include abs.font($font-size: var(--fs-200), $color: var(--clr-star-200));
+    }
+
+    & p {
+      @include abs.font($font-size: var(--fs-300), $font-weight: 400, $color:var(--clr-dark-cosmos-300));
+    }
+
+    &--copyright {
+      @include abs.font($font-size: var(--fs-300), $font-weight: 500);
+    }
+  }
+
+  @include abs.mq(small) {
+    &__container {
+        align-items: center;
+    }
+  }
+}

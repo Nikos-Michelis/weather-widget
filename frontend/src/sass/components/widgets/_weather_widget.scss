@@ -1,0 +1,158 @@
+@use "../../abstracts/index" as abs;
+
+.modes {
+  display: flex;
+  justify-content: center;
+  background-color: var(--clr-star-200);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.398039);
+  border-radius: 0.4rem;
+  max-width: 25rem;
+  padding: 0.65rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+.weather {
+  background-color: var(--clr-star-200);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.398039);
+  border-radius: 0.4rem;
+  max-width: 20rem;
+  padding: 0.65rem;
+  overflow: hidden;
+  width: 100%;
+  &--small {
+    max-width: 18rem;
+  }
+
+  &--medium {
+    max-width: 25rem;
+  }
+
+  &--large {
+    max-width: 45rem;
+  }
+
+  &__temp-toggle {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-block: 0.25rem;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    &--wrap {
+      flex-flow: wrap;
+    }
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-block: 0.25rem;
+
+    &--col {
+      flex-direction: column;
+    }
+
+    &--forcast {
+      justify-content: space-between;
+      font-size: 0.75rem;
+    }
+  }
+
+
+  &__detail-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &--col {
+      flex-direction: column;
+    }
+  }
+
+  &__detail-item {
+    text-align: center;
+    padding: 0.2rem;
+  }
+
+  &__value {
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+
+  &__text {
+    font-size: 0.75rem;
+    max-width: 6rem;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: .85rem;
+    &--large {
+      font-size: 1.85rem;
+    }
+  }
+
+  &__image-icon {
+    width: 100%;
+
+    &--medium {
+      max-width: 3rem;
+    }
+
+    &--large {
+      max-width: 6rem;
+    }
+  }
+
+  &__icon {
+    font-size: 1rem;
+
+    &--wind {
+      color: var(--clr-wind-gray);
+    }
+
+    &--humidity {
+      color: var(--clr-sky-300);
+    }
+
+    &--medium {
+      font-size: 1.5rem;
+    }
+
+    &--large {
+      font-size: 3rem;
+    }
+  }
+
+  @include abs.mq(small) {
+    &__details--col {
+      flex-direction: row;
+    }
+
+    &__container--responsive {
+      flex-direction: row;
+    }
+
+    &__details--forcast {
+      flex-direction: column;
+    }
+
+    &__title {
+      max-width: 5rem;
+    }
+  }
+
+  @include abs.mq(medium) {
+    &__details--half {
+      width: 50%;
+    }
+  }
+}

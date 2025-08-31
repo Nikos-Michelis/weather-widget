@@ -1,0 +1,45 @@
+@use "../abstracts/index" as abs;
+
+.toolbar {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__tools {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    background-color: var(--clr-star-200);
+    border-radius: 0.3rem;
+    box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+  }
+
+  &__options {
+    box-sizing: inherit;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    height: auto;
+    gap: 10px;
+  }
+
+  &__actions{
+    width: 100%;
+  }
+
+  @include abs.mq(xl) {
+    &__wrapper {
+      width: 60%;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+services:
+  redis:
+    image: redis:7.4.2
+    ports:
+      - "6379:6379"
+    networks:
+      - spring-backend-network
+
+  weather-api:
+    build: .
+    container_name: weather-api-container
+    restart: on-failure
+    environment:
+      OPEN_WEATHER_API: ${OPEN_WEATHER_API}
+    ports:
+      - "8080:8080"
+    depends_on:
+      - redis
+    networks:
+      - spring-backend-network
+
+networks:
+  spring-backend-network:
+    driver: bridge

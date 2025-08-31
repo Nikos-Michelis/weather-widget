@@ -1,0 +1,40 @@
+@use "../../abstracts/index" as *;
+@use "../../abstracts/index" as abs;
+
+.counter {
+  display: flex;
+  justify-content: center;
+  font-family: $font-family-orbitron;
+  &--container{
+    position: absolute;
+    top: 27.5rem;
+    background-color: var(--clr-secondary-300);
+    padding: 0.8rem;
+    border: 2px solid var(--clr-dark-cosmos-300);
+    border-radius: 0.3rem;
+    box-shadow: 0 0.3rem 0 var(--clr-dark-cosmos-300);
+  }
+
+  &__digit-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__number {
+    display: flex;
+    flex-wrap: nowrap;
+    color: var(--clr-dark-cosmos-300);
+    font-size: 1rem;
+    & > span {
+      text-align: center;
+      flex-wrap: nowrap;
+      font-weight: 500
+    }
+  }
+
+  &__label {
+    @include abs.font($font-size: var(--fs-300), $font-weight: 800, $color: var(--clr-dark-cosmos-300), $font-variant: all-small-caps);
+    text-align: center;
+  }
+}

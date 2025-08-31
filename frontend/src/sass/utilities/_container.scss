@@ -1,0 +1,112 @@
+@use "../abstracts" as abs;
+@use "../abstracts/variables" as *;
+@use "../abstracts/sizes" as *;
+
+.container {
+  --padding: #{$container-min-margin-inline};
+  --max-width: #{$container-max-width};
+
+  width: min(100% - var(--padding), var(--max-width));
+  margin-inline: auto;
+  overflow: hidden;
+
+  &--light-overlay{
+    background-color: rgba(224, 218, 239, 0.2980392157);
+    z-index: 0;
+    box-shadow: 0 0 30px #387dff2b;
+  }
+  &--dark-overlay{
+    background-color: rgba(0, 0, 0, 0.398039);
+    z-index: 1000;
+  }
+}
+
+.container[data-scroll="vertical"] {
+  --max-height: 35rem;
+  max-height: var(--max-height);
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  @include abs.mq(small) {
+    &:not([data-height="small"]) {
+      max-height: 50rem;
+    }
+  }
+}
+
+.container[data-layout="grid-wrapper"] {
+  --max-width: 100%;
+  width: var(--max-width);
+  margin-inline: auto;
+
+  @include abs.mq(medium) {
+    width: fit-content;
+  }
+}
+
+.container[data-type="fixed"] {
+  --max-width: 64rem;
+  width: var(--max-width);
+  height: 100%;
+}
+
+.container[data-type="fixed-inherit"] {
+  --max-width: inherit;
+  width: var(--max-width);
+}
+
+.container[data-type="full-width"] {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+  margin-inline: 0;
+}
+
+.container[data-type="narrow"] {
+  --max-width: #{$container-max-width-narrow};
+}
+
+.container[data-type="medium"] {
+  --max-width: #{$container-max-width-medium};
+}
+
+.container[data-type="wide"] {
+  --max-width: #{$container-max-width-wide};
+}
+
+.container[data-type="full-bleed"] {
+  --max-width: 100%;
+}
+
+.container[data-width="fit-content"] {
+  width: fit-content;
+}
+
+.container[data-width="min-width"] {
+  min-width: 100%;
+}
+
+.container[data-spacing="none"] {
+  --padding: 0;
+  margin-inline: 0;
+}
+
+.container[data-overflow="visible"] {
+  overflow: visible;
+}
+
+
+@each $name, $value in $container-heights {
+  .container[data-height="#{$name}"] {
+    height: $value;
+  }
+
+  .container[data-height="#{$name}-responsive"] {
+    height: auto;
+
+    @include abs.mq(medium) {
+      height: $value;
+    }
+  }
+}
+
